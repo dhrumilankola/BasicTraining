@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
+  </head>
+
+<body>
+
+  <ul id="list1"><li>Audi</li><li>Bwm</li><li>Mercedes</li></ul>
+  <ul id="list2"><li>Sports</li><li>off-road</li><li>Luxury</li></ul>
+
+
+  <button onclick="myFunction()">Copy</button>
+
+
+  <script>
+    
+  function myFunction() {
+    var itm = document.getElementById("list2").lastChild;
+    var cln = itm.cloneNode(true);
+    document.getElementById("list1").appendChild(cln);
+  }
+  
+
+
+  </script>
+
+</body>
+</html>
+
