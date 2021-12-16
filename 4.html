@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Exercise 4</title>
+    <script>
+      function convert(degree) {
+        let temperature;
+        if (degree == "C") {
+          temperature = (document.getElementById("celsius").value * 9) / 5 + 32;
+          document.getElementById("farenheit").value = Math.round(temperature);
+        } else {
+          temperature =
+            ((document.getElementById("farenheit").value - 32) * 5) / 9;
+          document.getElementById("celsius").value = Math.round(temperature);
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <h1>Temperature Conversion</h1>
+    <br />
+
+    <label for="celsius">Celsius</label>
+    <input id="celsius" onkeyup="convert('C')" />
+    &nbsp;&nbsp;&nbsp;&nbsp; = &nbsp;&nbsp;
+    <label for="farenheit">Farenheit</label>
+    <input id="farenheit" onkeyup="convert('F')" />
+  </body>
+</html>
