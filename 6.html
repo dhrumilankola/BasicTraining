@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise 6</title>
+    <style>
+        
+        h2{
+            background: linear-gradient(to right, rgb(255,0,0),rgb(0, 255, 0),rgb(0, 0, 255));
+        }
+
+        #root{
+            margin-left: 38%;
+            height: 100px;
+            width: 400px;
+            margin-bottom: 20px;
+        }
+        .slider{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        #colorNumberR, #colorNumberG, #colorNumberB {
+            height: 20px;
+            margin: 0;
+            padding-left: 5px;
+            width: 50px;
+            margin: 10px;
+        }
+        #colorPickerR, #colorPickerG, #colorPickerB {
+            height: 30px;
+            width: 400px;
+            -webkit-appearance: none;
+            
+         
+        }
+        input[type='range']{
+            height: 10px;
+            width: 80%;
+            border-radius: 50px;
+            outline: none;
+            -webkit-appearance: none;
+            
+          }
+          
+          input[type='range']::-webkit-slider-thumb {
+            width: 25px;
+            height: 25px;
+            background: #fff;
+            border-radius: 50%;
+            cursor: pointer;
+            -webkit-appearance: none;
+            
+          }
+        #colorPickerR{
+            background: linear-gradient(to right, rgb(0,0,0),rgb(255, 0, 0));
+        }
+        #colorPickerG{
+            background: linear-gradient(to right, rgb(0,0,0),rgb(0, 255, 0));
+        }
+        #colorPickerB{
+            background: linear-gradient(to right, rgb(0,0,0),rgb(0, 0, 255));
+        }
+    </style>
+</head>
+<body>
+    <center><h2>RGB COLOR PICKER</h2></center>
+    <div id="root"></div>
+    <div class="slider">R:<input type="number" id="colorNumberR" onchange="itoc()"><input type="range" min="0" max="255" value="0" id="colorPickerR" oninput="myFunction()"/></div>
+    <div class="slider">G:<input type="number" id="colorNumberG" onchange="itoc()"><input type="range" min="0" max="255" value="0" id="colorPickerG" oninput="myFunction()"/></div>
+    <div class="slider">B:<input type="number" id="colorNumberB" onchange="itoc()"><input type="range" min="0" max="255" value="0" id="colorPickerB" oninput="myFunction()"/></div>
+   
+</body>
+</html>
+
+<script>
+    
+    function myFunction(){
+        var colorMainR =  document.getElementById("colorPickerR").value;
+        var colorMainG =  document.getElementById("colorPickerG").value;
+        var colorMainB =  document.getElementById("colorPickerB").value;
+        document.getElementById('colorNumberR').value = colorMainR;
+        document.getElementById('colorNumberG').value = colorMainG;
+        document.getElementById('colorNumberB').value = colorMainB;
+        document.getElementById('root').style.backgroundColor = `rgb(${colorMainR},${colorMainG},${colorMainB})`;
+   }
+
+   function itoc(){
+       var r = document.getElementById('colorNumberR').value;
+        var g = document.getElementById('colorNumberG').value;
+        var b = document.getElementById('colorNumberB').value;
+        document.getElementById('root').style.backgroundColor = `rgb(${r},${g},${b})`;
+        document.getElementById("colorPickerR").value = r;
+        document.getElementById("colorPickerG").value = g;
+        document.getElementById("colorPickerB").value = b;
+   }
+
+
+</script>
