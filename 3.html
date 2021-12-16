@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise 3</title>
+
+<script >  
+
+function multiply(){
+    var x = document.getElementById('firstNumber').value;
+    var y = document.getElementById('secondNumber').value;
+
+    var z = x* y;
+   
+    document.getElementById('result').innerHTML = z;
+}
+
+</script>
+
+</head>
+<body>
+    <p>Multiplication</p>
+    <br>
+    <input type="text" id="firstNumber" placeholder="Enter the 1st number" oninput="multiply()"> &nbsp;X&nbsp;
+    <input type="text" id="secondNumber" placeholder="Enter the 2nd number" oninput="multiply()">
+    <p>Answer</p>
+    <p id="result"></p>
+</body>
+</html> 
