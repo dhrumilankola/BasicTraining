@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exercise 5</title>
+
+<script>
+
+  function select_main(){
+    var main_option = document.getElementById('main-option').value;
+
+    if(main_option == 'Temperature'){
+      document.getElementById("Temperature").style.display = "block";
+      document.getElementById("Time").style.display = "none";
+    }else if(main_option == 'Time'){
+      document.getElementById("Time").style.display = "block";
+      document.getElementById("Temperature").style.display = "none";
+    }
+  }
+
+  function convert(degree) {
+  let temperature;
+  if (degree == "C") {
+    temperature = document.getElementById("celsius").value * 9 / 5 + 32;
+    document.getElementById("farenheit").value = Math.round(temperature);
+    } else {
+    temperature = (document.getElementById("farenheit").value -32) * 5 / 9;
+    document.getElementById("celsius").value = Math.round(temperature);
+     }
+    }
+
+    function time_convert(t) {
+      let time;
+      if(t == "S"){
+        time = document.getElementById('second').value / 60;
+        document.getElementById('minute').value = `${time}`;
+      }else{
+        time = document.getElementById('minute').value * 60;
+        document.getElementById('second').value = `${time}`;
+      }
+      
+}
+</script>
+
+</head>
+<body>
+  <div><h1>Time And Temperature Conversion</h1></div>
+  <div>
+    <select id="main-option" onchange="select_main()">
+      <option disabled selected>Choose</option>
+      <option value="Temperature">Temperature</option>
+      <option value="Time">Time</option>
+    </select>
+  </div>
+
+  <div id="Temperature" style="display: none; padding-top: 20px;">
+    <label for="celsius">Celsius</label>
+    <input id="celsius" onkeyup="convert('C')">
+    &nbsp;&nbsp;&nbsp;&nbsp; = &nbsp;&nbsp;
+    <label for="farenheit">Farenheit</label>
+    <input id="farenheit" onkeyup="convert('F')">
+  </div>
+
+  <div id="Time" style="display: none; padding-top: 20px;">
+   
+    <label for="second">Second</label>
+    <input id="second" onkeyup="time_convert('S')">
+    &nbsp;&nbsp;&nbsp;&nbsp; = &nbsp;&nbsp;
+    <label for="minute">Minute</label>
+    <input id="minute" onkeyup="time_convert('M')">
+  </div>
+</body>
+</html>
