@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body>
+        <form>
+        <button type="button" onclick="myFunction()" class="clone-btn">Add a new Button</button>
+       
+        <div id="output"></div>
+        </form>
+        <script type="text/javascript">
+
+
+            function increment(elem){
+                var aq=elem.parentNode.id;
+                parent = document.getElementById(aq);
+                children = parent.children[1].id;
+                var a=document.getElementById(children).value;
+                a++;   
+                document.getElementById(children).value = a;
+            };
+            
+            function decrement(elem){
+                var aq=elem.parentNode.id;
+                parent = document.getElementById(aq);
+                children = parent.children[1].id;
+                var a=document.getElementById(children).value;
+                
+                if(a != 0){
+                    a--;
+                    document.getElementById(children).value=a;
+                }
+             };
+            
+             var idcount = 1;
+             function myFunction() {
+                var idinside =idcount+100;
+                const div = document.createElement('div');
+                div.setAttribute("id", idcount);
+                div.innerHTML = `<button type="button" onclick="decrement(this)">-</button>
+                                <input type="number" id=${idinside}  value="0">
+                                <button type="button" onclick="increment(this)">+</button>
+                                `;
+                document.getElementById('output').appendChild(div);
+                idcount++;
+             }
+             
+         
+           myFunction();
+         </script>
+    </body>
+</html>
